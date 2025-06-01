@@ -3,7 +3,7 @@ detekt = "1.23.6"
 kotlin = "2.1.21"
 ksp = "2.1.21-2.0.1"
 
-groovy = "3.0.23"
+groovy = "3.0.25"
 jansi = "2.4.1"
 kx-ser = "1.8.1"
 logback = "1.5.18"
