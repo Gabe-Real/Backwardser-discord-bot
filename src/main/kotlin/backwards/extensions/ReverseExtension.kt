@@ -23,6 +23,8 @@ class ReverseExtension : Extension() {
 			}
 		}
 
+
+
 		chatCommand(::WReverseArgs) {
 			name = "wreverse".toKey()
 			description = "Reverse the order of words in a phrase".toKey()
