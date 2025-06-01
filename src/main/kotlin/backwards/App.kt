@@ -7,7 +7,11 @@ import dev.kord.common.entity.Snowflake
 import dev.kordex.core.ExtensibleBot
 import dev.kordex.core.utils.env
 import backwards.extensions.TestExtension
+import backwards.extensions.ReverseExtension
+import dev.kord.gateway.Intent
+import dev.kord.gateway.PrivilegedIntent
 import java.io.File
+import backwards.extensions.ScrambleExtension
 
 val TEST_SERVER_ID = Snowflake(
 	env("TEST_SERVER").toLong()  // Get the test server ID from the env vars or a .env file
@@ -34,6 +38,8 @@ suspend fun main() {
 
 		extensions {
 			add(::TestExtension)
+			add(::ReverseExtension)
+			add(::ScrambleExtension)
 		}
 
 		if (devMode) {
@@ -43,6 +49,12 @@ suspend fun main() {
 					pluginPath("src/main/dist/plugins")
 				}
 			}
+		}
+
+		@OptIn(PrivilegedIntent::class)
+		intents {
+			+Intent.GuildMembers
+			+Intent.MessageContent
 		}
 	}
 
